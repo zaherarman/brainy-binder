@@ -1,0 +1,16 @@
+langchain
+langchain-community
+chromadb
+sentence-transformers
+sqlalchemy
+pydantic
+pydantic-settings
+typer
+httpx
+python-dotenv
+pypdf
+markdown
+pytest
+pytest-mock
+rich
+numpy
