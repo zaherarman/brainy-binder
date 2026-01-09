@@ -1,12 +1,12 @@
 from rich.console import Console
 from rich.progress import Progress, SpinnerColumn, TextColumn, BarColumn
 
-from config import settings
-from db.session import get_session
-from db.models import Document as dbDocument
-from vectorstore.chroma_store import ChromaStore
-from ingestion.loaders import discover_documents, load_document
-from ingestion.chunking import chunk_documents
+from src.config import settings
+from src.db.session import get_session
+from src.db.models import Document as dbDocument
+from src.vectorstore.chroma_store import ChromaStore
+from .loaders import discover_documents, load_document
+from .chunking import chunk_documents
 
 console = Console()
 
@@ -109,7 +109,8 @@ class IngestionPipeline:
             )
 
             session.add(db_doc)
-            session.flush()
+            session.commit()
+            session.refresh(db_doc)
             doc_id = db_doc.id
 
         return doc_id

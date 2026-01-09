@@ -2,8 +2,8 @@ import chromadb
 
 from chromadb import Settings as ChromaSettings
 from langchain_core.documents import Document
-from vectorstore.embeddings import EmbeddingService
-from config import settings
+from .embeddings import EmbeddingService
+from src.config import settings
 
 class ChromaStore:
     """

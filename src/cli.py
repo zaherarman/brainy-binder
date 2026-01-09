@@ -4,12 +4,12 @@ from rich.console import Console
 from rich.table import Table
 from rich.panel import Panel
 
-from config import settings
-from db.session import init_db
-from ingestion.pipeline import IngestionPipeline
-from rag.answer_engine import AnswerEngine
-from agents.semantic_tagging import SemanticTaggingAgent
-from vectorstore.chroma_store import ChromaStore
+from .config import settings
+from .db.session import init_db
+from .ingestion.pipeline import IngestionPipeline
+from .rag.answer_engine import AnswerEngine
+from .agents.semantic_tagging import SemanticTaggingAgent
+from .vectorstore.chroma_store import ChromaStore
 
 app = typer.Typer(name="brainy-binder", help="Privacy-first local AI knowledge assistant", add_completion=False)
 console = Console()
@@ -176,7 +176,7 @@ def chat():
             continue
 
         if question.lower() in ["exit", "quit", "q"]:
-            console.print("\n[cyan]Goodbye! 👋[/cyan]")
+            console.print("\n[cyan]Goodbye! [/cyan]")
             break
 
         try:

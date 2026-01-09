@@ -1,6 +1,6 @@
 import httpx
 
-from config import settings
+from src.config import settings
 
 class MistralClient:
     def __init__(self, base_url=None, model_name=None, api_key=None, timeout=None, temp=None, max_tokens=None):

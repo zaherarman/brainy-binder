@@ -2,8 +2,8 @@ from contextlib import contextmanager
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
-from config import settings
-from db.models import Base
+from src.config import settings
+from .models import Base
 
 engine = None
 session_factory = None

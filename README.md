@@ -33,34 +33,74 @@ The system is designed to be transparent, debuggable, and extensible.
 ```
 brainy-binder/
 │
-├── cli.py
-├── config.py
+├── src/
+│   │
+│   ├── cli.py
+│   ├── config.py
+│   │
+│   ├── data/
+│   │
+│   ├── db/
+│   │   ├── models.py
+│   │   ├── session.py
+│   │   └── brainy_binder.db
+│   │
+│   ├── ingestion/
+│   │   ├── pipeline.py
+│   │   ├── loaders.py
+│   │   └── chunking.py
+│   │
+│   ├── vectorstore/
+│   │   ├── chroma_store.py
+│   │   └── embeddings.py
+│   │
+│   ├── rag/
+│   │   └── answer_engine.py
+│   │
+│   ├── llm/
+│   │   ├── client.py
+│   │   └── prompts.py
+│   │
+│   └── agents/
+│       └── semantic_tagging.py
 │
-├── data/
-│
-├── db/
-│   ├── models.py
-│   ├── session.py
-│   └── brainy_binder.db
-│
-├── ingestion/
-│   ├── pipeline.py
-│   ├── loaders.py
-│   └── chunking.py
-│
-├── vectorstore/
-│   ├── chroma_store.py
-│   └── embeddings.py
-│
-├── rag/
-│   └── answer_engine.py
-│
-├── llm/
-│   ├── client.py
-│   └── prompts.py
-│
-├── agents/
-│   └── semantic_tagging.py
+├── ui/ # In progress... (cli still works)
 │
 └── README.md
+```
+
+## Commands
+
+### 1. Ingest documents
+Process and index all files located in your data/ directory
+
+```bash
+python -m src.cli ingest
+```
+
+### 2. Ask a question
+Get a single answer based on your knowledge base.
+
+```bash
+python -m src.cli query "Give me a summary of documents in my data folder"
+```
+
+### 3. Interactive chat
+Start a continuous conversation about your documents.
+
+```bash
+python -m src.cli chat
+```
+
+### 4. Check indexed document counts and config settings
+
+```bash
+python -m src.cli info
+```
+
+### 5. List Documents
+See exactly what files have been indexed in the database.
+
+```bash
+python -m src.cli list-docs
 ```

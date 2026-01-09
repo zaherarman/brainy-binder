@@ -1,11 +1,11 @@
 import json
 import re
 
-from llm.client import MistralClient
-from llm.prompts import build_tagging_prompt
-from db.session import get_session
-from db.models import Document as dbDocument
-from vectorstore.chroma_store import ChromaStore
+from src.llm.client import MistralClient
+from src.llm.prompts import build_tagging_prompt
+from src.db.session import get_session
+from src.db.models import Document as dbDocument
+from src.vectorstore.chroma_store import ChromaStore
 
 class SemanticTaggingAgent():
     """

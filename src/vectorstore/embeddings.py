@@ -1,7 +1,7 @@
 from sentence_transformers import SentenceTransformer
 import torch
 
-from config import settings
+from src.config import settings
 
 class EmbeddingService:
     """

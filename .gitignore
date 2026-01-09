@@ -143,3 +143,4 @@ cython_debug/
 notes.txt
 
 chroma_db/
+src/db/brainy_binder.db

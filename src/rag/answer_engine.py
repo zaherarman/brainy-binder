@@ -1,11 +1,11 @@
 from pathlib import Path
 from langchain_core.documents import Document
-from config import settings
-from vectorstore.chroma_store import ChromaStore
-from llm.client import MistralClient
-from llm.prompts import build_rag_prompt, build_summarization_prompt
-from db.models import Document as dbDocument
-from db.session import get_session 
+from src.config import settings
+from src.vectorstore.chroma_store import ChromaStore
+from src.llm.client import MistralClient
+from src.llm.prompts import build_rag_prompt, build_summarization_prompt
+from src.db.models import Document as dbDocument
+from src.db.session import get_session
 
 class AnswerEngine:
     def __init__(self, chroma_store=None, llm_client=None, top_k=None):
@@ -13,7 +13,7 @@ class AnswerEngine:
         self.llm_client = llm_client or MistralClient()
         self.top_k = top_k or settings.top_k
 
-    def answer_question(self, question, top_k):
+    def answer_question(self, question, top_k=None):
         k = top_k or self.top_k
 
         documents = self.chroma_store.similarity_search(question, k=k)
